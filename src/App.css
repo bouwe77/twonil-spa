@@ -1,0 +1,113 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f4f7f9;  
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+h1, h2, h3, h4, h5 {
+  margin: 0;
+  padding: 0;  
+}
+
+/* ======================= Header ====================== */
+
+.header {
+  background-color: #ff00ff;
+  padding: 10px;
+}
+
+.header-nav {
+  float:right;
+  color: #ffffff;
+}
+
+.header-logo {
+  float:left;
+}
+
+.logo {
+  color: #ffffff;
+  font-size: large;
+  text-decoration: none;
+}
+
+.header-nav-link {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 8px;  
+}
+
+.header-nav-link:hover, .header-nav-link-active:hover {
+  text-decoration: underline;  
+}
+
+.header-nav-link-active {
+  font-weight: bold;  
+}
+
+.header-nav-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.header-nav-listitem {
+  float: left;
+}
+
+.header-nav-listitem {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* ======================= Content ====================== */
+
+.title {
+  font-size: large;
+  font-weight: bold;
+  padding: 10px;
+}
+
+.subtitle {
+  font-weight: normal;
+}
+
+.blocks {
+  padding: 10px;
+}
+
+/* ======================= Footer ====================== */
+
+.footer {
+  padding: 10px;
+}
+
+/* =================== Sidemenu / Game Navigation =================== */
+
+.sidemenu {
+  background-color: #00bcd4;
+  padding: 10px;
+}
+
+.game-nav ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.game-nav-item, .game-nav-item-active, .game-nav-item a, .game-nav-item-active a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.game-nav-item a:hover, .game-nav-item-active a:hover {
+  text-decoration: underline;
+}
+
+.game-nav-item-active {
+  font-weight: bold;
+}
+
