@@ -1,0 +1,116 @@
+/* Source: https://hackernoon.com/how-css-grid-beats-bootstrap-85d5881cf163  */
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(12,1fr);
+    grid-template-rows: 50px 100px 40px;
+  }
+  
+  .header {
+    grid-column: span 12;
+    /*background-color: #ff00ff;*/
+  }
+  
+  .content-container {  
+    display: grid;
+    grid-template-columns: repeat(12,1fr);
+    grid-column: span 12;
+    /*background-color: purple;*/
+  }
+  
+  .sidemenu {
+    grid-column: span 2;
+    /*background-color: #00bcd4;*/
+  }
+  
+  .content {
+    grid-column: span 10;
+    /*background-color: green;*/
+  }
+  
+  .footer {
+    grid-column: span 12;
+    /*background-color: #888888;*/
+  }
+  
+  .title {
+    /*background-color: white;*/
+  }
+  
+  .blocks {
+    display: grid;
+    grid-template-columns: repeat(12,1fr);
+    /*background-color: red;*/
+  }
+
+  .block-2columns {
+    grid-column: span 2;
+    background-color: lightblue;
+    padding: 2px;
+    margin: 2px;
+  }
+
+  .block-3columns {
+    grid-column: span 3;
+    background-color: lightblue;
+    padding: 2px;
+    margin: 2px;
+  }
+
+  .block-4columns {
+    grid-column: span 4;
+    background-color: lightblue;
+    padding: 2px;
+    margin: 2px;
+  }
+  
+  .block-5columns {
+    grid-column: span 5;
+    background-color: lightblue;
+    padding: 2px;
+    margin: 2px;
+  }
+  
+  .block-6columns {
+    grid-column: span 6;
+    background-color: lightblue;
+    padding: 2px;
+    margin: 2px;
+  }
+  
+  .block-7columns {
+    grid-column: span 7;
+    background-color: lightblue;
+    padding: 2px;
+    margin: 2px;
+  }
+  
+  .block-8columns {
+    grid-column: span 8;
+    background-color: lightblue;
+    padding: 2px;
+    margin: 2px;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .header {
+      grid-row: 1;
+      grid-column: span 12;
+    }
+    .content-container {
+      grid-row: 2;
+      grid-column: span 12;
+    }
+    .sidemenu {
+      grid-row: 1;
+      grid-column: span 12;
+    }
+    .content {
+      grid-row: 2;
+      grid-column: span 12;
+    }
+    .footer {
+      grid-row: 3;
+      grid-column: span 12;
+    }
+  }
+  
