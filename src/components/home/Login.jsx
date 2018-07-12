@@ -1,33 +1,43 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom'
+import { connect } from 'react-redux';
+import { changeEmail, changePassword, login } from '../../modules/login-module';
 
 import LoginForm from './LoginForm';
 
-class LoginFormContainer extends React.Component {
+class Login extends React.Component {
 
     handleEmailChange = (email) => {
-        this.props.dispatchChangeEmail(email);
+        this.props.dispatch(changeEmail(email));
     }
 
     handlePasswordChange = (password) => {
-        this.props.dispatchChangePassword(password);
+        this.props.dispatch(changePassword(password));
     }
 
     handleLogin = () => {
-        this.props.dispatchLogin();
+        this.props.dispatch(login());
 
-        // TODO Redirect to games
+        // Redirect to games after successful login
+        this.props.history.push('/games')
     }
 
     render() {
         return (
             <div>
-                <LoginForm 
-                    handleEmailChange={this.handleEmailChange} 
-                    handlePasswordChange={this.handlePasswordChange} 
+                <LoginForm
+                    handleEmailChange={this.handleEmailChange}
+                    handlePasswordChange={this.handlePasswordChange}
                     handleLogin={this.handleLogin} />
             </div>
         )
     }
 }
 
-export default LoginFormContainer
+const mapStateToProps = (state) => ({
+    email: state.email,
+    password: state.password,
+    loggedIn: state.loggedIn
+});
+
+export default withRouter(connect(mapStateToProps)(Login));

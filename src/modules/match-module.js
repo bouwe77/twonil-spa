@@ -1,6 +1,5 @@
 import { GET_MATCH_SUCCESS } from './action-types';
 import Api from '../services/http/api';
-import { apiIsLoading, apiErrorOccurred } from './generic-module'
 
 // Reducers
 export function matchReducer(state = {}, action) {
@@ -15,9 +14,9 @@ export function matchReducer(state = {}, action) {
 // Action creators
 export function getMatch(gameId, matchId) {
     return (dispatch) => {
-        dispatch(apiIsLoading(true));
+        //dispatch(apiIsLoading(true));
         var url = '/games/' + gameId + '/matches/' + matchId;
-        Api.get(url, (responseData) => dispatch(getMatchSuccess(responseData)), (error) => dispatch(apiErrorOccurred(true)));
+    Api.get(url, (responseData) => dispatch(getMatchSuccess(responseData)), (error) => /*dispatch(apiErrorOccurred(true))*/ console.log(error));
     }
 };
 

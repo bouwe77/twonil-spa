@@ -1,11 +1,14 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { withRouter } from 'react-router'
+import { connect } from 'react-redux';
+
+//import { getGameNavigation } from '../modules/gamenavigation-module';
 
 class GameNavigation extends React.Component {
 
     //    componentDidMount() {
-    //        this.props.dispatchGetGameNavigation(this.props.match.params.gameId);
+    //        this.props.dispatch(getGameNavigation(this.props.match.params.gameId);
     //    }
 
     render() {
@@ -32,4 +35,8 @@ class GameNavigation extends React.Component {
     }
 }
 
-export default withRouter(GameNavigation);
+const mapStateToProps = (state) => ({
+    gameNavigationItems: state.gameNavigationItems,
+});
+
+export default withRouter(connect(mapStateToProps)(GameNavigation));

@@ -1,6 +1,5 @@
 import { GET_DASHBOARD_SUCCESS } from './action-types';
 import Api from '../services/http/api';
-import { apiIsLoading, apiErrorOccurred } from './generic-module'
 
 // Reducers
 export function dashboardReducer (state = {}, action) {
@@ -23,8 +22,8 @@ export function getDashboardSuccess(dashboard) {
 // Action creators
 export function getDashboard(gameId) {
     return (dispatch) => {
-        dispatch(apiIsLoading(true));
+        //dispatch(apiIsLoading(true));
         var url = '/games/' + gameId;
-        Api.get(url, (responseData) => dispatch(getDashboardSuccess(responseData['_embedded'])), (error) => dispatch(apiErrorOccurred(true)));
+        Api.get(url, (responseData) => dispatch(getDashboardSuccess(responseData['_embedded'])), (error) => /*dispatch(apiErrorOccurred(true))*/ console.log(error));
     }
 };

@@ -1,7 +1,6 @@
 import { GET_DAY_MATCHES_SUCCESS, PLAY_DAY_MATCHES_SUCCESS } from './action-types';
 
 import Api from '../services/http/api';
-import { apiIsLoading, apiErrorOccurred } from './generic-module'
 
 // Reducers
 export function daymatchesReducer (state = [], action) {
@@ -19,9 +18,9 @@ export function daymatchesReducer (state = [], action) {
 // Action creator for getting all matches on a specific day.
 export function getDayMatches(gameId, matchDayId) {
     return (dispatch) => {
-        dispatch(apiIsLoading(true));
+        //dispatch(apiIsLoading(true));
         var url = '/games/' + gameId + '/days/' + matchDayId + '/matches';
-        Api.get(url, (responseData) => dispatch(getDayMatchesSuccess(responseData)), (error) => dispatch(apiErrorOccurred(true)));
+        Api.get(url, (responseData) => dispatch(getDayMatchesSuccess(responseData)), (error) => /*dispatch(apiErrorOccurred(true))*/ console.log(error));
     }
 };
 
@@ -36,10 +35,10 @@ export function getDayMatchesSuccess(dayMatches) {
 // Action creator for playing all matches on a specific day.
 export function playMatches(gameId, matchDayId) {
     return (dispatch) => {
-        dispatch(apiIsLoading(true));
+        //dispatch(apiIsLoading(true));
         var url = '/games/' + gameId + '/days/' + matchDayId + '/matches';
         const payload = {};
-        Api.post(url, payload, (responseData) => dispatch(playMatchesSuccess(responseData)), (error) => dispatch(apiErrorOccurred(true)));
+        Api.post(url, payload, (responseData) => dispatch(playMatchesSuccess(responseData)), (error) => /*dispatch(apiErrorOccurred(true))*/ console.log(error));
     }
 };
 

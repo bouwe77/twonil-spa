@@ -1,5 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router'
+import { connect } from 'react-redux'
+import { getDayMatches } from '../../modules/daymatches-module'
 
 import Title from '../Title';
 import CompetitionMatchList from './CompetitionMatchList';
@@ -8,7 +10,7 @@ import PlayNextRound from '../matches/PlayNextRound';
 class DayMatches extends React.Component {
 
     refresh() {
-        this.props.dispatchGetDayMatches(this.props.match.params.gameId, this.props.match.params.matchDayId);
+        this.props.dispatch(getDayMatches(this.props.match.params.gameId, this.props.match.params.matchDayId));
     }
 
 //    componentDidMount() {
@@ -60,4 +62,8 @@ class DayMatches extends React.Component {
     }
 }
 
-export default withRouter(DayMatches);
+const mapStateToProps = (state) => ({
+    dayMatches: state.dayMatches,
+});
+
+export default withRouter(connect(mapStateToProps)(DayMatches));

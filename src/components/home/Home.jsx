@@ -1,6 +1,6 @@
 import React from 'react';
 
-import LoginForm from '../../containers/LoginFormContainer';
+import Login from './Login';
 
 const Home = () => {
     return (
@@ -9,7 +9,7 @@ const Home = () => {
                 HOME
             </div>
             <div className="blocks">
-                <LoginForm />
+                <Login />
             </div>
         </div>
     );

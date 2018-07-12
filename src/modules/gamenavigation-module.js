@@ -1,6 +1,5 @@
 import { GET_GAME_NAVIGATION_SUCCESS } from './action-types';
 import Api from '../services/http/api';
-import { apiIsLoading, apiErrorOccurred } from './generic-module'
 
 // Reducer
 export function gamenavigationReducer (state = [], action) {
@@ -15,9 +14,9 @@ export function gamenavigationReducer (state = [], action) {
 // Action creators
 export function getGameNavigation(gameId) {
     return (dispatch) => {
-        dispatch(apiIsLoading(true));
+        //dispatch(apiIsLoading(true));
         var url = '/games/' + gameId + '/links';
-        Api.get(url, (responseData) => dispatch(getGameNavigationSuccess(responseData['_links'].game)), (error) => dispatch(apiErrorOccurred(true)));
+        Api.get(url, (responseData) => dispatch(getGameNavigationSuccess(responseData['_links'].game)), (error) => /*dispatch(apiErrorOccurred(true))*/ console.log(error));
     }
 };
 

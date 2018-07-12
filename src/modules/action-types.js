@@ -1,6 +1,3 @@
-// Games
-export const GET_GAMES_SUCCESS = 'GET_GAMES_SUCCESS';
-
 // Game navigation
 export const GET_GAME_NAVIGATION_SUCCESS = 'GET_GAME_NAVIGATION_SUCCESS';
 
