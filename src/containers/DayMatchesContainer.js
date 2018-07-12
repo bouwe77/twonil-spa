@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { getDayMatches } from '../actions/daymatches';
+import { getDayMatches } from '../modules/daymatches-module';
 import DayMatches from '../components/matches/DayMatches';
 
 const mapStateToProps = (state) => ({

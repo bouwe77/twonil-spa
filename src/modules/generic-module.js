@@ -1,6 +1,12 @@
-import { ERROR_OCCURRED } from '../constants/action-types';
-import { LOADING } from '../constants/action-types';
+import { ERROR_OCCURRED, LOADING } from './action-types';
 
+// Reducers
+// ==> none yet...
+
+// Action creators
+// ==> none yet...
+
+// Actions
 export function apiErrorOccurred(bool) {
     return {
         type: ERROR_OCCURRED,

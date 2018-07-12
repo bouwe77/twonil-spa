@@ -3,12 +3,12 @@ import { Route, Switch } from 'react-router-dom'
 
 import GameNavigationContainer from '../../containers/GameNavigationContainer'
 import DashboardContainer from '../../containers/DashboardContainer'
-import MatchContainer from '../../containers/MatchContainer';
-import DayMatchesContainer from '../../containers/DayMatchesContainer';
+import MatchContainer from '../../containers/MatchContainer'
+import DayMatchesContainer from '../../containers/DayMatchesContainer'
 
 import PageNotFound from '../error/PageNotFound'
 
-const GameContent = (props) => {
+const GameContent = () => {
     return (
         <div className="content-container">
             <div className="sidemenu">

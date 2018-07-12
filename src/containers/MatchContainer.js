@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import { getMatch } from '../actions/match';
-import { playMatches } from '../actions/daymatches';
+import { playMatches } from '../modules/daymatches-module';
+import { getMatch } from '../modules/match-module';
 
 import Match from '../components/match/Match';
 

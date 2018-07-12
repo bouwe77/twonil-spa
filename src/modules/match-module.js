@@ -1,9 +1,18 @@
-import { GET_MATCH_SUCCESS } from '../constants/action-types';
-
+import { GET_MATCH_SUCCESS } from './action-types';
 import Api from '../services/http/api';
-import { apiIsLoading, apiErrorOccurred } from './generic'
+import { apiIsLoading, apiErrorOccurred } from './generic-module'
 
-// Action creator for getting a single match.
+// Reducers
+export function matchReducer(state = {}, action) {
+    switch (action.type) {
+        case GET_MATCH_SUCCESS:
+            return { ...state, match: action.match };
+        default:
+            return state;
+    }
+};
+
+// Action creators
 export function getMatch(gameId, matchId) {
     return (dispatch) => {
         dispatch(apiIsLoading(true));
@@ -12,7 +21,7 @@ export function getMatch(gameId, matchId) {
     }
 };
 
-// Action for getting the match.
+// Actions
 export function getMatchSuccess(match) {
     return {
         type: GET_MATCH_SUCCESS,

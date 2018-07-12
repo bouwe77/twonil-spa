@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { getGameNavigation } from '../actions/gamenavigation';
+import { getGameNavigation } from '../modules/gamenavigation-module';
 import GameNavigation from '../components/gamenavigation/GameNavigation';
 
 const mapStateToProps = (state) => ({

@@ -1,5 +1,7 @@
 import React from 'react';
 
+import LoginForm from '../../containers/LoginFormContainer';
+
 const Home = () => {
     return (
         <div>
@@ -7,7 +9,7 @@ const Home = () => {
                 HOME
             </div>
             <div className="blocks">
-                moio
+                <LoginForm />
             </div>
         </div>
     );

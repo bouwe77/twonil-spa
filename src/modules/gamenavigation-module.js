@@ -1,8 +1,18 @@
-import { GET_GAME_NAVIGATION_SUCCESS } from '../constants/action-types';
+import { GET_GAME_NAVIGATION_SUCCESS } from './action-types';
 import Api from '../services/http/api';
-import { apiIsLoading, apiErrorOccurred } from './generic'
+import { apiIsLoading, apiErrorOccurred } from './generic-module'
 
-// The action creator.
+// Reducer
+export function gamenavigationReducer (state = [], action) {
+    switch (action.type) {
+        case GET_GAME_NAVIGATION_SUCCESS:
+            return { ...state, gameNavigationItems: [...action.gameNavigationItems] };
+        default:
+            return state;
+    }
+};
+
+// Action creators
 export function getGameNavigation(gameId) {
     return (dispatch) => {
         dispatch(apiIsLoading(true));
@@ -11,7 +21,7 @@ export function getGameNavigation(gameId) {
     }
 };
 
-// The action.
+// Actions
 export function getGameNavigationSuccess(gameNavigationItems) {
     return {
         type: GET_GAME_NAVIGATION_SUCCESS,

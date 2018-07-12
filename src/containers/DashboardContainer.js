@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { getDashboard } from '../actions/dashboard';
+import { getDashboard } from '../modules/dashboard-module';
 import Dashboard from '../components/dashboard/Dashboard';
 
 const mapStateToProps = (state) => ({

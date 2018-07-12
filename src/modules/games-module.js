@@ -1,8 +1,18 @@
-import { GET_GAMES_SUCCESS } from '../constants/action-types';
+import { GET_GAMES_SUCCESS } from './action-types';
 import Api from '../services/http/api';
-import { apiIsLoading, apiErrorOccurred } from './generic'
+import { apiIsLoading, apiErrorOccurred } from './generic-module'
 
-// The action creator.
+// Reducers
+export function gamesReducer(state = [], action) {
+    switch (action.type) {
+        case GET_GAMES_SUCCESS:
+            return { ...state, games: [...action.games] };
+        default:
+            return state;
+    }
+};
+
+// Action creators
 export function getGames() {
     return (dispatch) => {
         dispatch(apiIsLoading(true));
@@ -11,7 +21,7 @@ export function getGames() {
     }
 };
 
-// The action.
+// Actions
 export function getGamesSuccess(games) {
     return {
         type: GET_GAMES_SUCCESS,

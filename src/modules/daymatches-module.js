@@ -1,8 +1,20 @@
-import { GET_DAY_MATCHES_SUCCESS } from '../constants/action-types';
-import { PLAY_DAY_MATCHES_SUCCESS } from '../constants/action-types';
+import { GET_DAY_MATCHES_SUCCESS, PLAY_DAY_MATCHES_SUCCESS } from './action-types';
 
 import Api from '../services/http/api';
-import { apiIsLoading, apiErrorOccurred } from './generic'
+import { apiIsLoading, apiErrorOccurred } from './generic-module'
+
+// Reducers
+export function daymatchesReducer (state = [], action) {
+  switch (action.type) {
+    case GET_DAY_MATCHES_SUCCESS:
+      return { ...state, dayMatches: action.dayMatches };
+
+    case PLAY_DAY_MATCHES_SUCCESS:
+      return { ...state }; // geen data teruggeven???
+    default:
+      return state;
+  }
+};
 
 // Action creator for getting all matches on a specific day.
 export function getDayMatches(gameId, matchDayId) {
@@ -15,7 +27,6 @@ export function getDayMatches(gameId, matchDayId) {
 
 // Action for getting all matches on a specific day.
 export function getDayMatchesSuccess(dayMatches) {
-    
     return {
         type: GET_DAY_MATCHES_SUCCESS,
         dayMatches: dayMatches
