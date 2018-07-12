@@ -13,10 +13,9 @@ class LoginFormContainer extends React.Component {
     }
 
     handleLogin = () => {
-        //this.props.dispatchLogin();
+        this.props.dispatchLogin();
 
-        // Redirect to games
-
+        // TODO Redirect to games
     }
 
     render() {
