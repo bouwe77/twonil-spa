@@ -1,5 +1,6 @@
 import axios from 'axios'
 import config from '../constants/config'
+import { loading, failure } from './shared'
 
 // Action types
 export const GET_GAMES_LOADING = 'GET_GAMES_LOADING';
@@ -13,31 +14,29 @@ const initialState = {
     error: null
 };
 
-export function gamesReducer(state = initialState, action) {
+export function games(state = initialState, action) {
     switch (action.type) {
+        case GET_GAMES_SUCCESS:
+            return {
+                ...state,
+                games: action.games,
+                loading: false,
+                error: null,
+            };
+
         case GET_GAMES_LOADING:
-            console.log('loading...')
             return {
                 ...state,
                 loading: true,
                 error: null
             };
 
-        case GET_GAMES_SUCCESS:
-            console.log('success!')
-            return {
-                ...state,
-                loading: false,
-                error: null,
-                games: action.games
-            };
-
         case GET_GAMES_FAILURE:
             return {
                 ...state,
+                games: [],
                 loading: false,
-                error: action.error,
-                games: []
+                error: action.error
             };
 
         default:
@@ -48,10 +47,10 @@ export function gamesReducer(state = initialState, action) {
 // Action creators
 export function getGames() {
     return dispatch => {
-        dispatch(getGamesLoading());
+        dispatch(loading(GET_GAMES_LOADING));
         return axios.get(config.apiUrl + "/games")
             .then(res => dispatch(getGamesSuccess(res.data['_embedded']['rel:games'])))
-            .catch(error => dispatch(getGamesFailure(error)));
+            .catch(error => dispatch(failure(GET_GAMES_FAILURE, error)));
     };
 };
 
@@ -60,18 +59,5 @@ export function getGamesSuccess(games) {
     return {
         type: GET_GAMES_SUCCESS,
         games: games
-    };
-}
-
-export function getGamesLoading() {
-    return {
-        type: GET_GAMES_LOADING
-    };
-}
-
-export function getGamesFailure(error) {
-    return {
-        type: GET_GAMES_FAILURE,
-        error: error
     };
 }

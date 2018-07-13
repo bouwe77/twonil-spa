@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux';
-import { changeEmail, changePassword, login } from '../../modules/login-module';
+import { changeEmail, changePassword, processLogin } from '../../modules/login-module';
 
 import LoginForm from './LoginForm';
 
@@ -16,7 +16,7 @@ class Login extends React.Component {
     }
 
     handleLogin = () => {
-        this.props.dispatch(login());
+        this.props.dispatch(processLogin());
 
         // Redirect to games after successful login
         this.props.history.push('/games')

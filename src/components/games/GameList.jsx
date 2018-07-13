@@ -3,25 +3,17 @@ import Game from './Game';
 
 const GameList = (props) => {
 
-    console.log('render GameList', props.games)
-
-    /*
     if (props.loading) {
-        return (<div>Loading...</div>);
+        return ('loading...');
     }
-    else {
-        return (<div>Nee</div>)
-    }
-*/
 
-    var stateSet = typeof (props.games) !== 'undefined';
-    if (stateSet) {
-        return (
-            <ul>
-                {props.games.map((game) => <Game key={game._links.self.href} {...game} />)}
-            </ul>
-        );
-    } else return(null)
+//TODO error moet hier nog bij
+
+    return (
+        <ul>
+            {props.games.map((game) => <Game key={game._links.self.href} {...game} />)}
+        </ul>
+    );
 }
 
 export default GameList

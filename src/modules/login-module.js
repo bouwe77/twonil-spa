@@ -1,11 +1,16 @@
-import { EMAIL_CHANGED, PASSWORD_CHANGED, LOGIN_SUCCESS } from "./action-types";
-
-var initialState = {
-    loggedIn: false
-}
+// Action types
+export const EMAIL_CHANGED = 'EMAIL_CHANGED';
+export const PASSWORD_CHANGED = 'PASSWORD_CHANGED';
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 
 // Reducers
-export function loginReducer(state = initialState, action) {
+var initialState = {
+    loggedIn: false,
+    loading: false,
+    error: null
+}
+
+export function login(state = initialState, action) {
     switch (action.type) {
         case EMAIL_CHANGED:
             return { ...state, email: action.email };
@@ -33,7 +38,7 @@ export function changePassword(password) {
     };
 };
 
-export function login() {
+export function processLogin() {
     return {
         type: LOGIN_SUCCESS,
         loggedIn: true
